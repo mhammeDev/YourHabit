@@ -19,4 +19,14 @@ class HabitsViewModel: ObservableObject{
         habits.append(contentsOf: Habits.testData)
     }
     
+    func updateItem(habit: Habits){
+        for(index, td) in habits.enumerated(){
+            if td.id == habit.id {
+                habits[index].isCompleted.toggle()
+                habits[index].title = habit.title
+            }
+            
+        }
+    }
+    
 }

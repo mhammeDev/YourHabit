@@ -9,25 +9,38 @@ import SwiftUI
 
 struct RowView: View {
     
-    let habits : Habits
+    var habits : Habits
+    @EnvironmentObject var data: HabitsViewModel
+
     
     var body: some View {
         HStack{
-            Image(systemName: habits.isCompleted ? "checkmark.circle" : "circle")
-                .foregroundColor(habits.isCompleted ? .green : .red)
+            Rectangle()
+                .cornerRadius(15)
+                .frame(width: 350, height: 60)
+                .foregroundColor(.gray)
+                .onTapGesture {
+                    data.updateItem(habit: habits)
+                }
+                .overlay(
+                    HStack{
+                        Image(systemName: habits.isCompleted ? "checkmark.circle" : "circle")
+                            .foregroundColor(habits.isCompleted ? .green : .red)
+                        Spacer()
+                        Text(habits.title)
+                    }.font(.title2)
+                        .padding(10)
+                    
+                )
+
         }
+        .font(.title2)
     }
 }
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
         RowView(habits: Habits.testData[0])
-            .previewLayout(.sizeThatFits)
-        RowView(habits: Habits.testData[1])
-            .previewLayout(.sizeThatFits)
-        RowView(habits: Habits.testData[2])
-            .previewLayout(.sizeThatFits)
-        RowView(habits: Habits.testData[3])
-            .previewLayout(.sizeThatFits)
+            .environmentObject(HabitsViewModel())
     }
 }

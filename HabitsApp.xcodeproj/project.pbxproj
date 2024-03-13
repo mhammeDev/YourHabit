@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		A908BDD72B98605D00B5D6B4 /* HabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDD62B98605D00B5D6B4 /* HabitsApp.swift */; };
-		A908BDD92B98605D00B5D6B4 /* HabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDD82B98605D00B5D6B4 /* HabitsView.swift */; };
 		A908BDDB2B98605D00B5D6B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A908BDDA2B98605D00B5D6B4 /* Assets.xcassets */; };
 		A908BDDE2B98605D00B5D6B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A908BDDD2B98605D00B5D6B4 /* Preview Assets.xcassets */; };
-		A908BDE82B98628900B5D6B4 /* HabitsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDE72B98628900B5D6B4 /* HabitsListView.swift */; };
 		A908BDEA2B98631200B5D6B4 /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDE92B98631200B5D6B4 /* Habits.swift */; };
 		A908BDEC2B98651E00B5D6B4 /* HabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDEB2B98651E00B5D6B4 /* HabitsViewModel.swift */; };
 		A908BDEE2B9865DC00B5D6B4 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDED2B9865DC00B5D6B4 /* RowView.swift */; };
+		EDA67C2B2BA19F5500640EDE /* HabitsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA67C2A2BA19F5500640EDE /* HabitsListView.swift */; };
+		EDA67C2D2BA19F6700640EDE /* HabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA67C2C2BA19F6700640EDE /* HabitsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A908BDD32B98605D00B5D6B4 /* HabitsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A908BDD62B98605D00B5D6B4 /* HabitsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsApp.swift; sourceTree = "<group>"; };
-		A908BDD82B98605D00B5D6B4 /* HabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsView.swift; sourceTree = "<group>"; };
 		A908BDDA2B98605D00B5D6B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A908BDDD2B98605D00B5D6B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A908BDE72B98628900B5D6B4 /* HabitsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListView.swift; sourceTree = "<group>"; };
 		A908BDE92B98631200B5D6B4 /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
 		A908BDEB2B98651E00B5D6B4 /* HabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewModel.swift; sourceTree = "<group>"; };
 		A908BDED2B9865DC00B5D6B4 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		EDA67C2A2BA19F5500640EDE /* HabitsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HabitsListView.swift; path = ../../../../.Trash/HabitsListView.swift; sourceTree = "<group>"; };
+		EDA67C2C2BA19F6700640EDE /* HabitsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HabitsView.swift; path = ../../../../.Trash/HabitsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,9 +88,9 @@
 		A908BDE52B9860DE00B5D6B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A908BDE72B98628900B5D6B4 /* HabitsListView.swift */,
+				EDA67C2C2BA19F6700640EDE /* HabitsView.swift */,
+				EDA67C2A2BA19F5500640EDE /* HabitsListView.swift */,
 				A908BDED2B9865DC00B5D6B4 /* RowView.swift */,
-				A908BDD82B98605D00B5D6B4 /* HabitsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,9 +174,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A908BDEC2B98651E00B5D6B4 /* HabitsViewModel.swift in Sources */,
+				EDA67C2D2BA19F6700640EDE /* HabitsView.swift in Sources */,
 				A908BDEE2B9865DC00B5D6B4 /* RowView.swift in Sources */,
-				A908BDE82B98628900B5D6B4 /* HabitsListView.swift in Sources */,
-				A908BDD92B98605D00B5D6B4 /* HabitsView.swift in Sources */,
+				EDA67C2B2BA19F5500640EDE /* HabitsListView.swift in Sources */,
 				A908BDEA2B98631200B5D6B4 /* Habits.swift in Sources */,
 				A908BDD72B98605D00B5D6B4 /* HabitsApp.swift in Sources */,
 			);
