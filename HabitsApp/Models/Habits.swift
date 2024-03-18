@@ -22,5 +22,8 @@ struct Habits : Identifiable{
         Habits(title: "Boire de l'eau", isCompleted: false),
         Habits(title: "Courrir 30 minutes", isCompleted: false),
         Habits(title: "Faire 3000 pas", isCompleted: true),
+        Habits(title: "Courrir 30 minutes", isCompleted: false),
+        Habits(title: "Courrir 30 minutes", isCompleted: false),
+        Habits(title: "Courrir 30 minutes", isCompleted: false),
     ]
 }

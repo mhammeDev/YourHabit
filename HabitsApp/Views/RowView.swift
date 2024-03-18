@@ -17,8 +17,8 @@ struct RowView: View {
         HStack{
             Rectangle()
                 .cornerRadius(15)
-                .frame(width: 350, height: 60)
-                .foregroundColor(.gray)
+                .frame(width: 350, height: 80)
+                .foregroundColor(Color(.systemGray5))
                 .onTapGesture {
                     data.updateItem(habit: habits)
                 }
@@ -28,7 +28,7 @@ struct RowView: View {
                             .foregroundColor(habits.isCompleted ? .green : .red)
                         Spacer()
                         Text(habits.title)
-                    }.font(.title2)
+                    }.font(.title)
                         .padding(10)
                     
                 )
