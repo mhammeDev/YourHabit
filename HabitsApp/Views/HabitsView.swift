@@ -22,10 +22,10 @@ struct HabitsView: View {
                 }
             HabitsListView()
                 .tabItem {
-                    Label("Statistics", systemImage: "figure.walk.circle.fill")
+                    Label("Edit", systemImage: "square.and.pencil")
 
                 }
-            HabitsListView()
+            SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
 

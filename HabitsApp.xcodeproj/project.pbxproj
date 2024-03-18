@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D6DC49D2BA88339001DFE05 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DC49C2BA88339001DFE05 /* SettingsView.swift */; };
 		5DDD2F3A2BA8708C0014D9D8 /* HabitsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDD2F392BA8708C0014D9D8 /* HabitsListView.swift */; };
 		5DDD2F3C2BA872CE0014D9D8 /* HabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDD2F3B2BA872CE0014D9D8 /* HabitsView.swift */; };
 		A908BDD72B98605D00B5D6B4 /* HabitsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDD62B98605D00B5D6B4 /* HabitsApp.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D6DC49C2BA88339001DFE05 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5DDD2F392BA8708C0014D9D8 /* HabitsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitsListView.swift; sourceTree = "<group>"; };
 		5DDD2F3B2BA872CE0014D9D8 /* HabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsView.swift; sourceTree = "<group>"; };
 		A908BDD32B98605D00B5D6B4 /* HabitsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 				5DDD2F392BA8708C0014D9D8 /* HabitsListView.swift */,
 				A908BDED2B9865DC00B5D6B4 /* RowView.swift */,
 				5DDD2F3B2BA872CE0014D9D8 /* HabitsView.swift */,
+				5D6DC49C2BA88339001DFE05 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D6DC49D2BA88339001DFE05 /* SettingsView.swift in Sources */,
 				A908BDEC2B98651E00B5D6B4 /* HabitsViewModel.swift in Sources */,
 				5DDD2F3C2BA872CE0014D9D8 /* HabitsView.swift in Sources */,
 				A908BDEE2B9865DC00B5D6B4 /* RowView.swift in Sources */,

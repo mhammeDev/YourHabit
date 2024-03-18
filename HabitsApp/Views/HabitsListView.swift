@@ -18,6 +18,11 @@ struct HabitsListView: View {
                 .bold()
                 .padding([.top, .horizontal])
             
+            Text("Le message d'accueil sera ici, avec utilisateur")
+                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                .padding(.horizontal)
+            
+            
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     ForEach(data.habits) { habit in
