@@ -29,7 +29,6 @@ struct HabitsListView: View {
                         .font(.title)
                 }
                 .sheet(isPresented: $showingDatePicker) {
-                    // Conteneur pour le DatePicker
                     VStack {
                         DatePicker(
                             "Sélectionner la date",
@@ -57,7 +56,7 @@ struct HabitsListView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     ForEach(data.habits) { habit in
-                        RowView(habits: habit)
+                        RowView(habits: habit, mode: "V")
                     }
                 }
                 .padding(.horizontal)

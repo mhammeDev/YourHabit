@@ -7,12 +7,12 @@ struct SettingsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
-            Text("Settings")
+            Text("Réglages")
                 .font(.largeTitle)
                 .bold()
                 .padding(.horizontal)
             
-            TextField("Enter your username", text: $username)
+            TextField("Entrez votre nom d'utilisateur", text: $username)
                 .padding()
                 .frame(height: 55)
                 .background(Color(.systemGray4))

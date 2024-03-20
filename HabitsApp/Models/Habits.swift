@@ -20,10 +20,13 @@ struct Habits : Identifiable{
     static var testData = [
         Habits(title: "Faire 10 pompes", isCompleted: true),
         Habits(title: "Boire de l'eau", isCompleted: false),
-        Habits(title: "Courrir 30 minutes", isCompleted: false),
+        Habits(title: "Courir 30 minutes", isCompleted: false),
         Habits(title: "Faire 3000 pas", isCompleted: true),
-        Habits(title: "Courrir 30 minutes", isCompleted: false),
-        Habits(title: "Courrir 30 minutes", isCompleted: false),
-        Habits(title: "Courrir 30 minutes", isCompleted: false),
+        Habits(title: "Faire 3000 pas", isCompleted: true),
+        Habits(title: "Faire 3000 pas", isCompleted: true),
+        Habits(title: "Faire 3000 pas", isCompleted: true),
+        Habits(title: "Faire 3000 pas", isCompleted: true),
+
+ 
     ]
 }

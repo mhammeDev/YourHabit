@@ -13,21 +13,21 @@ struct HabitsView: View {
         TabView{
             HabitsListView()
                 .tabItem {
-                    Label("Home", systemImage: "house.fill")
+                    Label("Accueil", systemImage: "house.fill")
                 }
             HabitsListView()
                 .tabItem {
-                    Label("Statistics", systemImage: "chart.bar.xaxis")
+                    Label("Statistiques", systemImage: "chart.bar.xaxis")
 
                 }
-            HabitsListView()
+            EditHabitsView()
                 .tabItem {
-                    Label("Edit", systemImage: "square.and.pencil")
+                    Label("Modifier", systemImage: "square.and.pencil")
 
                 }
             SettingsView()
                 .tabItem {
-                    Label("Settings", systemImage: "gearshape.fill")
+                    Label("Réglages", systemImage: "gearshape.fill")
 
                 }
         }

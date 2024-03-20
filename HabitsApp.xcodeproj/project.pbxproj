@@ -16,6 +16,8 @@
 		A908BDEA2B98631200B5D6B4 /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDE92B98631200B5D6B4 /* Habits.swift */; };
 		A908BDEC2B98651E00B5D6B4 /* HabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDEB2B98651E00B5D6B4 /* HabitsViewModel.swift */; };
 		A908BDEE2B9865DC00B5D6B4 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDED2B9865DC00B5D6B4 /* RowView.swift */; };
+		EDC3E3912BAAC4BC00FDC526 /* AddHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC3E3902BAAC4BC00FDC526 /* AddHabitsView.swift */; };
+		EDC3E3932BAAC4CD00FDC526 /* EditHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC3E3922BAAC4CD00FDC526 /* EditHabitsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		A908BDE92B98631200B5D6B4 /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
 		A908BDEB2B98651E00B5D6B4 /* HabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewModel.swift; sourceTree = "<group>"; };
 		A908BDED2B9865DC00B5D6B4 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		EDC3E3902BAAC4BC00FDC526 /* AddHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitsView.swift; sourceTree = "<group>"; };
+		EDC3E3922BAAC4CD00FDC526 /* EditHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				A908BDED2B9865DC00B5D6B4 /* RowView.swift */,
 				5DDD2F3B2BA872CE0014D9D8 /* HabitsView.swift */,
 				5D6DC49C2BA88339001DFE05 /* SettingsView.swift */,
+				EDC3E3902BAAC4BC00FDC526 /* AddHabitsView.swift */,
+				EDC3E3922BAAC4CD00FDC526 /* EditHabitsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,11 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDC3E3932BAAC4CD00FDC526 /* EditHabitsView.swift in Sources */,
 				5D6DC49D2BA88339001DFE05 /* SettingsView.swift in Sources */,
 				A908BDEC2B98651E00B5D6B4 /* HabitsViewModel.swift in Sources */,
 				5DDD2F3C2BA872CE0014D9D8 /* HabitsView.swift in Sources */,
 				A908BDEE2B9865DC00B5D6B4 /* RowView.swift in Sources */,
 				5DDD2F3A2BA8708C0014D9D8 /* HabitsListView.swift in Sources */,
+				EDC3E3912BAAC4BC00FDC526 /* AddHabitsView.swift in Sources */,
 				A908BDEA2B98631200B5D6B4 /* Habits.swift in Sources */,
 				A908BDD72B98605D00B5D6B4 /* HabitsApp.swift in Sources */,
 			);
