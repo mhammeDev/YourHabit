@@ -15,9 +15,14 @@ struct HabitsView: View {
                 .tabItem {
                     Label("Accueil", systemImage: "house.fill")
                 }
-            HabitsListView()
+            StatistiqueView()
                 .tabItem {
                     Label("Statistiques", systemImage: "chart.bar.xaxis")
+
+                }
+            QuetesView()
+                .tabItem {
+                    Label("Quêtes", systemImage: "trophy")
 
                 }
             EditHabitsView()

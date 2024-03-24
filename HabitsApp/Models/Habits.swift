@@ -14,18 +14,15 @@ import Foundation
 struct Habits : Identifiable{
     var id = UUID()
     var title : String
-    var isCompleted : Bool
+    var completionDates: [Date]
     //var colors : Colors
     
     static var testData = [
-        Habits(title: "Faire 10 pompes", isCompleted: true),
-        Habits(title: "Boire de l'eau", isCompleted: false),
-        Habits(title: "Courir 30 minutes", isCompleted: false),
-        Habits(title: "Faire 3000 pas", isCompleted: true),
-        Habits(title: "Faire 3000 pas", isCompleted: true),
-        Habits(title: "Faire 3000 pas", isCompleted: true),
-        Habits(title: "Faire 3000 pas", isCompleted: true),
-        Habits(title: "Faire 3000 pas", isCompleted: true),
+        Habits(title: "Faire 10 pompes", completionDates: []),
+        Habits(title: "Boire de l'eau", completionDates: []),
+        Habits(title: "Courir 30 minutes", completionDates: []),
+        Habits(title: "Faire 3000 pas", completionDates: []),
+
 
  
     ]

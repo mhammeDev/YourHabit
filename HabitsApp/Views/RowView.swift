@@ -12,6 +12,7 @@ struct RowView: View {
     var habits : Habits
     var mode : Character
     @EnvironmentObject var data: HabitsViewModel
+    var completionDate: Date
 
     
     var body: some View {
@@ -23,14 +24,14 @@ struct RowView: View {
                     .foregroundColor(Color(.systemGray5))
                     .onTapGesture {
                         if(mode == "V"){
-                            data.updateItem(habit: habits)
+                            data.updateItem(habit: habits, date: completionDate)
                         }
                     }
                     .overlay(
                         HStack{
                             if(mode == "V"){
-                                Image(systemName: habits.isCompleted ? "checkmark.circle" : "circle")
-                                    .foregroundColor(habits.isCompleted ? .green : .red)
+                                Image(systemName: data.isDateInHabits(habit: habits, date: completionDate) ? "checkmark.circle" : "circle")
+                                    .foregroundColor(data.isDateInHabits(habit: habits, date: completionDate) ? .green : .red)
                                 Spacer()
                             }
                             Text(habits.title)
@@ -42,7 +43,19 @@ struct RowView: View {
             else if (mode == "E"){
                 Text(habits.title)
                     .padding(.vertical,8)
-
+            }
+            else if(mode == "S") {
+                    Rectangle()
+                        .cornerRadius(15)
+                        .frame(width: 350, height: 80)
+                        .foregroundColor(Color(data.isDateInHabits(habit: habits, date: completionDate) ? .green : .red))
+                        .overlay(
+                            HStack{
+                                Text(habits.title)
+                            }.font(.title)
+                                .padding(10)
+                            
+                        )
                 
             }
 
@@ -53,7 +66,7 @@ struct RowView: View {
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        RowView(habits: Habits.testData[0], mode: "E")
+        RowView(habits: Habits.testData[0], mode: "V", completionDate :Date())
             .environmentObject(HabitsViewModel())
     }
 }

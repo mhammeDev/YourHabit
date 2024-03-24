@@ -8,7 +8,7 @@ struct EditHabitsView: View {
             List {
                 ForEach(data.habits) { habit in
                     NavigationLink(destination: AddHabitsView(habitToEdit: habit)) {
-                        RowView(habits: habit, mode: "E")
+                        RowView(habits: habit, mode: "E",completionDate: Date())
                     }
                     .buttonStyle(PlainButtonStyle())
                 }

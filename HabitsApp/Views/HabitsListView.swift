@@ -56,7 +56,7 @@ struct HabitsListView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     ForEach(data.habits) { habit in
-                        RowView(habits: habit, mode: "V")
+                        RowView(habits: habit, mode: "V",completionDate: selectedDate)
                     }
                 }
                 .padding(.horizontal)

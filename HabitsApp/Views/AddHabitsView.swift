@@ -25,7 +25,7 @@ struct AddHabitsView: View {
                 if let habit = habitToEdit {
                     data.updateItem(habit: habit, title: habitsTitle)
                 } else {
-                    data.addHabits(title: habitsTitle)
+                    data.addHabit(title: habitsTitle)
                 }
                 presentationMode.wrappedValue.dismiss()
                 
