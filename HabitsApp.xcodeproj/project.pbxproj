@@ -20,6 +20,7 @@
 		A908BDEE2B9865DC00B5D6B4 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908BDED2B9865DC00B5D6B4 /* RowView.swift */; };
 		EDC3E3912BAAC4BC00FDC526 /* AddHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC3E3902BAAC4BC00FDC526 /* AddHabitsView.swift */; };
 		EDC3E3932BAAC4CD00FDC526 /* EditHabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC3E3922BAAC4CD00FDC526 /* EditHabitsView.swift */; };
+		EDD1B9832BB411D400B0130D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1B9822BB411D400B0130D /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		A908BDED2B9865DC00B5D6B4 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		EDC3E3902BAAC4BC00FDC526 /* AddHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitsView.swift; sourceTree = "<group>"; };
 		EDC3E3922BAAC4CD00FDC526 /* EditHabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitsView.swift; sourceTree = "<group>"; };
+		EDD1B9822BB411D400B0130D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				A908BDE92B98631200B5D6B4 /* Habits.swift */,
+				EDD1B9822BB411D400B0130D /* Notification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				5DDD2F3C2BA872CE0014D9D8 /* HabitsView.swift in Sources */,
 				A908BDEE2B9865DC00B5D6B4 /* RowView.swift in Sources */,
 				5DDD2F3A2BA8708C0014D9D8 /* HabitsListView.swift in Sources */,
+				EDD1B9832BB411D400B0130D /* Notification.swift in Sources */,
 				EDC3E3912BAAC4BC00FDC526 /* AddHabitsView.swift in Sources */,
 				A908BDEA2B98631200B5D6B4 /* Habits.swift in Sources */,
 				A908BDD72B98605D00B5D6B4 /* HabitsApp.swift in Sources */,

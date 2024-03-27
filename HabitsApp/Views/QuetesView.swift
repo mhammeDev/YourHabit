@@ -13,7 +13,7 @@ struct QuetesView: View {
     @EnvironmentObject var habitsViewModel: HabitsViewModel
     
     var body: some View {
-        VStack {
+        ScrollView {
             Text("Quêtes")
                 .font(.title)
                 .padding()

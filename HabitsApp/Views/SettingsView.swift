@@ -4,6 +4,12 @@ struct SettingsView: View {
     @State private var username: String = ""
     @State private var isChecked = false
     @State private var isDarkModeEnabled = false
+    @State private var pushNotificationEnabled = false
+    @State private var notificationTimes: [Date] = []
+    @State private var newNotificationTime = Date()
+
+
+
 
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
@@ -22,8 +28,35 @@ struct SettingsView: View {
             Toggle("Message Accueil", isOn: $isChecked)
                 .padding(.horizontal)
             
-            Toggle("Notification push", isOn: $isChecked)
+            Toggle("Notification push", isOn: $pushNotificationEnabled)
                 .padding(.horizontal)
+                .onChange(of: pushNotificationEnabled, perform: { value in
+                    if value {
+                        // Activer les notifications push
+                    } else {
+                        // Désactiver les notifications push
+                    }
+                })
+            
+            if pushNotificationEnabled {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Créneaux horaires pour les notifications:")
+                        .padding(.leading)
+                    ForEach(notificationTimes, id: \.self) { time in
+                        Text(dateFormatter.string(from: time))
+                            .padding(.leading)
+                    }
+                    HStack {
+                        DatePicker("", selection: $newNotificationTime, displayedComponents: .hourAndMinute)
+                            .padding(.horizontal)
+                        Button("Ajouter") {
+                            notificationTimes.append(newNotificationTime)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
+            
             
             HStack {
                 Text(isDarkModeEnabled ? "Activer le mode lumineux" : "Activer le mode sombre")
@@ -43,7 +76,13 @@ struct SettingsView: View {
         }
         .padding(.top)
     }
-}
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        return formatter
+    }()}
+
+
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
