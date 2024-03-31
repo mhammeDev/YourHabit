@@ -16,12 +16,14 @@ struct HabitsListView: View {
 
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 50) {
+        VStack(alignment: .center) {
+            Text("Accueil")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
             HStack {
                 Text(settingsViewModel.selectedDate, style: .date)
-                    .font(.largeTitle)
-                    .bold()
-                
+                    .font(.title)
                 Spacer()
                 
                 Button(action: {
@@ -48,11 +50,11 @@ struct HabitsListView: View {
                     }
                 }
             }
-            .padding([.top, .horizontal])
+            .padding([.top, .horizontal,.bottom])
             
-            Text("Faites vos habitudes \(settingsViewModel.username) !")
-                .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .padding(.horizontal)
+            if settingsViewModel.isChecked {
+                motivationalMessage
+            }
             
             
             ScrollView {
@@ -62,8 +64,31 @@ struct HabitsListView: View {
                     }
                 }
                 .padding(.horizontal)
-            }
+            }.padding(10)
         }
+    }
+    
+    private var motivationalMessage: some View {
+        let totalHabits = data.getHabitsSize()
+        let streak = data.calculateDayPercentage(current: settingsViewModel.selectedDate)
+        let message: String
+
+        if streak == totalHabits {
+            message = "Parfait \(settingsViewModel.username) ! 👌🏼"
+        } else if streak > totalHabits / 2 {
+            message = "Super travail \(settingsViewModel.username), continue comme ça ! ✌🏽"
+        } else {
+            message = "Bouge toi \(settingsViewModel.username), il est temps d'agir ! 👎🏼"
+        }
+
+        return HStack {
+            Spacer()
+            Text(message)
+                .font(.title2)
+                .multilineTextAlignment(.center)
+            Spacer()
+        }
+        .padding([.horizontal,.top])
     }
 }
 

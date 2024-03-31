@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State private var isChecked = false
     @State private var isDarkModeEnabled = false
     @State private var pushNotificationEnabled = false
     @EnvironmentObject var notificationManager: Notification
@@ -14,12 +13,14 @@ struct SettingsView: View {
     @EnvironmentObject var data: HabitsViewModel
     
     var body: some View {
-        ScrollView{VStack(alignment: .leading, spacing: 30) {
+        ScrollView{
             Text("Réglages")
-                .font(.largeTitle)
-                .bold()
-                .padding(.horizontal)
-            
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            VStack(alignment: .leading, spacing: 30) {
+
+        
             TextField("Entrez votre nom d'utilisateur", text: $settingsViewModel.username)
                 .padding()
                 .frame(height: 55)
@@ -30,7 +31,7 @@ struct SettingsView: View {
             Toggle("Page de démarrage", isOn: $settingsViewModel.showWelcomeScreen)
                 .padding(.horizontal)
             
-            Toggle("Message Accueil", isOn: $isChecked)
+            Toggle("Message Accueil", isOn: $settingsViewModel.isChecked)
                 .padding(.horizontal)
             
             Toggle("Notification push", isOn: $pushNotificationEnabled)

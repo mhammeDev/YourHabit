@@ -18,6 +18,11 @@ class HabitsViewModel: ObservableObject {
         habits.append(contentsOf: Habits.testData)
     }
     
+    func getHabitsSize() -> Int{
+        return habits.count
+        
+    }
+    
     func addHabit(title: String) {
         let newHabit = Habits(title: title, completionDates: [])
         habits.append(newHabit)
@@ -70,6 +75,19 @@ class HabitsViewModel: ObservableObject {
         let totalDaysInWeek = Double(Calendar.current.dateComponents([.day], from: startDateInclusive, to: endDate).day ?? 1)
         let percentage = Double(completionCountInWeek) * 100 / totalDaysInWeek
         return Int(percentage.rounded())
+    }
+    
+    func calculateDayPercentage(current: Date) -> Int{
+        var streak = 0
+        
+        for habit in habits {
+            if(isDateInHabits(habit: habit, date: current)){
+                streak += 1
+            }
+        }
+            
+        return streak
+        
     }
     
     func calculateStreak(from startDate: Date) -> Int {

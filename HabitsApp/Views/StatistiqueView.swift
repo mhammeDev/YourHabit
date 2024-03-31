@@ -25,6 +25,7 @@ struct StatistiqueView: View {
         VStack {
             Text("Statistiques")
                 .font(.title)
+                .bold()
                 .padding()
             
             Picker("Sélectionner le type de statistique", selection: $selectedStatType) {
@@ -39,7 +40,6 @@ struct StatistiqueView: View {
                     HStack {
                         Text(    settingsViewModel.selectedDate, style: .date)
                             .font(.title3)
-                            .bold()
                         
                         Spacer()
                         
@@ -68,8 +68,8 @@ struct StatistiqueView: View {
                             }
                         }
                     }
-                    .padding([.top, .horizontal])
-                    
+                    .padding(25)
+                                        
                     ScrollView {
                         VStack(alignment: .leading, spacing: 18) {
                             ForEach(data.habits) { habit in
@@ -78,11 +78,8 @@ struct StatistiqueView: View {
                         }
                         .padding(.horizontal)
                     }
+
                 } else {
-                    Text("Statistiques hebdomadaires")
-                        .font(.headline)
-                        .padding(.top)
-                    
                     VStack {
                         HStack {
                             Button(action: {
@@ -113,7 +110,7 @@ struct StatistiqueView: View {
                             }
                             .padding(.leading)
                         }
-                        .padding()
+                        .padding(25)
                         
                         ScrollView {
                             VStack(alignment: .leading, spacing: 18) {
@@ -121,11 +118,11 @@ struct StatistiqueView: View {
                                     RowView(habits: habit, mode: "X", completionDate:     settingsViewModel.selectedDate,percentage: data.calculateWeeklyPercentage(for: habit, startDate: selectedWeekStartDate))
                                 }
                             }
-                            .padding(.horizontal)
-                        }
+                        }                        .padding(.horizontal)
+                        
                     }
                 }
-                Spacer() // Aligne les éléments au centre de l'écran
+                Spacer()
             }
         }
     }

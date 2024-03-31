@@ -16,6 +16,7 @@ struct QuetesView: View {
         ScrollView {
             Text("Quêtes")
                 .font(.title)
+                .bold()
                 .padding()
             
             VStack(spacing: 15) {

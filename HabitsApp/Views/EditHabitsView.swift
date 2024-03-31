@@ -5,29 +5,33 @@ struct EditHabitsView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(data.habits) { habit in
-                    NavigationLink(destination: AddHabitsView(habitToEdit: habit)) {
-                        RowView(habits: habit, mode: "E",completionDate: Date())
+            VStack {
+                Text("Modifier vos habitudes")
+                    .font(.title)
+                    .bold()
+                    .padding()
+
+                List {
+                    ForEach(data.habits) { habit in
+                        NavigationLink(destination: AddHabitsView(habitToEdit: habit)) {
+                            RowView(habits: habit, mode: "E", completionDate: Date())
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .onDelete(perform: data.deleteHabits)
+                    .onMove(perform: data.moveItem)
                 }
-                
-                .onDelete(perform: data.deleteHabits)
-                .onMove(perform: data.moveItem)
-            }
-            .listStyle(PlainListStyle())
-            .navigationTitle("Modifier vos habitudes")
-            .padding(12)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                .listStyle(PlainListStyle())
+
+                HStack {
                     EditButton()
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
+                    Spacer()
                     NavigationLink("Ajouter", destination: AddHabitsView())
                 }
+                .padding(30)
             }
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
         }
     }
 }

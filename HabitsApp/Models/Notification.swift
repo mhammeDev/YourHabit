@@ -19,7 +19,8 @@ class Notification: NSObject, ObservableObject, UNUserNotificationCenterDelegate
         UNUserNotificationCenter.current().delegate = self
         requestAuthorization { granted in
             print("Notification permission granted: \(granted)")
-        }    }
+        }
+    }
     
     func requestAuthorization(completion: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in

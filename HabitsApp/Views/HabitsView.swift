@@ -21,8 +21,6 @@ struct HabitsView: View {
             })
         }else{
             
-            
-
         TabView{
             HabitsListView()
                 .tabItem {

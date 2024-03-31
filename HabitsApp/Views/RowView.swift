@@ -25,7 +25,8 @@ struct RowView: View {
                 Rectangle()
                     .cornerRadius(15)
                     .frame(width: 350, height: 80)
-                    .foregroundColor(Color(.systemGray5))
+                    .foregroundColor(Color(.systemGray6))
+
                     .onTapGesture {
                         if(mode == "V"){
                             data.updateItem(habit: habits, date: completionDate)
@@ -34,7 +35,7 @@ struct RowView: View {
                     .overlay(
                         HStack{
                             if(mode == "V"){
-                                Image(systemName: data.isDateInHabits(habit: habits, date: completionDate) ? "checkmark.circle" : "circle")
+                                Image(systemName: data.isDateInHabits(habit: habits, date: completionDate) ? "checkmark.circle.fill" : "multiply.circle.fill")
                                     .foregroundColor(data.isDateInHabits(habit: habits, date: completionDate) ? .green : .red)
                                 Spacer()
                             }
@@ -52,7 +53,7 @@ struct RowView: View {
                     Rectangle()
                         .cornerRadius(15)
                         .frame(width: 350, height: 80)
-                        .foregroundColor(Color(data.isDateInHabits(habit: habits, date: completionDate) ? .green : .red))
+                        .foregroundColor(Color(data.isDateInHabits(habit: habits, date: completionDate) ? .systemGreen : .systemRed))
                         .overlay(
                             HStack{
                                 Text(habits.title)
@@ -66,12 +67,12 @@ struct RowView: View {
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .cornerRadius(15)
-                        .frame(width: 380, height: 90)
+                        .frame(width: 350, height: 80)
                         .foregroundColor(Color(.blue))
 
                     Rectangle()
                         .cornerRadius(15)
-                        .frame(width: CGFloat(percentage ?? 0) / 100.0 * 380, height: 90)
+                        .frame(width: CGFloat(percentage ?? 0) / 100.0 * 350, height: 80)
                         .foregroundColor(Color(.white).opacity(0.5))
                         .animation(.linear, value: percentage)
 
@@ -94,7 +95,7 @@ struct RowView: View {
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        RowView(habits: Habits.testData[0], mode: "X", completionDate :Date(), percentage: 40)
+        RowView(habits: Habits.testData[0], mode: "V", completionDate :Date(), percentage: 40)
             .environmentObject(HabitsViewModel())
     }
 }
