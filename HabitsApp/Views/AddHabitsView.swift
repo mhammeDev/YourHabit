@@ -12,20 +12,28 @@ struct AddHabitsView: View {
     @EnvironmentObject var data: HabitsViewModel
     @Environment(\.presentationMode) var presentationMode
     var habitToEdit: Habits?
+    
+    
+    @State private var selectedColor = Color(UIColor.systemBlue)
+    
+       let systemColors: [UIColor] = [.systemBlue, .systemOrange, .systemPink, .systemPurple, .systemYellow]
 
-    var body: some View {
-        VStack (spacing: 16){            
-            TextField(habitToEdit == nil ? "Ajouter votre habitude" : "Modifier votre habitude", text: $habitsTitle)
-                .padding(.horizontal)
-                .frame(height:55)
-                .background(Color(.systemGray4))
-                .cornerRadius(10)
+       var body: some View {
+           VStack(spacing: 16) {
+               TextField(habitToEdit == nil ? "Ajouter votre habitude" : "Modifier votre habitude", text: $habitsTitle)
+                   .padding(.horizontal)
+                   .frame(height: 55)
+                   .background(Color(.systemGray4))
+                   .cornerRadius(10)
+               
+               ColorPickerView(systemColors: systemColors, selectedColor: $selectedColor)
+                   .padding(.vertical)
             
             Button {
                 if let habit = habitToEdit {
-                    data.updateItem(habit: habit, title: habitsTitle)
+                    data.updateItem(habit: habit, title: habitsTitle, color: selectedColor)
                 } else {
-                    data.addHabit(title: habitsTitle)
+                    data.addHabit(title: habitsTitle, color: selectedColor)
                 }
                 presentationMode.wrappedValue.dismiss()
                 
@@ -40,11 +48,34 @@ struct AddHabitsView: View {
             }
             Spacer()
         }
-        .padding(14)
+        .padding(15)
         .navigationTitle(habitToEdit == nil ? "Ajouter une habitude" : "Modifier une habitude")
         .onAppear {
             if let habit = habitToEdit {
                 habitsTitle = habit.title
+            }
+        }
+       }
+}
+
+struct ColorPickerView: View {
+    let systemColors: [UIColor]
+    @Binding var selectedColor: Color
+
+    var body: some View {
+        HStack {
+            ForEach(systemColors, id: \.self) { uiColor in
+                let color = Color(uiColor)
+                Circle()
+                    .fill(color)
+                    .frame(width: 40, height: 40)
+                    .overlay(
+                        Circle()
+                            .stroke(selectedColor == color ? Color.black : Color.clear, lineWidth: 3)
+                    )
+                    .onTapGesture {
+                        selectedColor = color
+                    }
             }
         }
     }

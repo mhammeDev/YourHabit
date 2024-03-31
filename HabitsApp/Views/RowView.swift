@@ -26,16 +26,21 @@ struct RowView: View {
                     .cornerRadius(15)
                     .frame(width: 350, height: 80)
                     .foregroundColor(Color(.systemGray6))
-
+                
                     .onTapGesture {
                         if(mode == "V"){
                             data.updateItem(habit: habits, date: completionDate)
                         }
                     }
+                
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(habits.color, lineWidth: 2)
+                    )
                     .overlay(
                         HStack{
                             if(mode == "V"){
-                                Image(systemName: data.isDateInHabits(habit: habits, date: completionDate) ? "checkmark.circle.fill" : "multiply.circle.fill")
+                                Image(systemName: data.isDateInHabits(habit: habits, date: completionDate) ? "checkmark.circle" : "multiply.circle")
                                     .foregroundColor(data.isDateInHabits(habit: habits, date: completionDate) ? .green : .red)
                                 Spacer()
                             }
@@ -50,46 +55,47 @@ struct RowView: View {
                     .padding(.vertical,8)
             }
             else if(mode == "S") {
-                    Rectangle()
-                        .cornerRadius(15)
-                        .frame(width: 350, height: 80)
-                        .foregroundColor(Color(data.isDateInHabits(habit: habits, date: completionDate) ? .systemGreen : .systemRed))
-                        .overlay(
-                            HStack{
-                                Text(habits.title)
-                            }.font(.title)
-                                .padding(10)
-                            
-                        )
+                Rectangle()
+                    .cornerRadius(15)
+                    .frame(width: 350, height: 80)
+                    .foregroundColor(Color(data.isDateInHabits(habit: habits, date: completionDate) ? .systemGreen : .systemRed))
+                    .overlay(
+                        HStack{
+                            Text(habits.title)
+                        }.font(.title)
+                            .padding(10)
+                        
+                    )
                 
             }
             else if mode == "X" {
+                
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .cornerRadius(15)
                         .frame(width: 350, height: 80)
-                        .foregroundColor(Color(.blue))
-
+                        .foregroundColor(habits.color)
+                    
                     Rectangle()
                         .cornerRadius(15)
-                        .frame(width: CGFloat(percentage ?? 0) / 100.0 * 350, height: 80)
-                        .foregroundColor(Color(.white).opacity(0.5))
+                        .frame(width: percentage==0  ? 15
+                               : CGFloat(percentage ?? 0) / 100.0 * 350 , height: 80)
+                        .foregroundColor(Color.white.opacity(0.5))
                         .animation(.linear, value: percentage)
-
+                    
                     HStack {
                         Text(habits.title)
                             .foregroundColor(.white)
                         Spacer()
                         Text("\(percentage ?? 0)%")
                             .foregroundColor(.white)
-                    }.padding(20)
+                    }
+                    .padding(20)
                     .font(.title)
-                } .padding(.horizontal)
+                }
+                .padding(.horizontal)
             }
-
-
         }
-        .font(.title2)
     }
 }
 

@@ -23,7 +23,7 @@ struct HabitsListView: View {
                 .padding()
             HStack {
                 Text(settingsViewModel.selectedDate, style: .date)
-                    .font(.title)
+                    .font(.title2)
                 Spacer()
                 
                 Button(action: {

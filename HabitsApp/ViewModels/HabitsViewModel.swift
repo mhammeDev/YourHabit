@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class HabitsViewModel: ObservableObject {
     @Published var habits: [Habits] = []
@@ -23,8 +24,8 @@ class HabitsViewModel: ObservableObject {
         
     }
     
-    func addHabit(title: String) {
-        let newHabit = Habits(title: title, completionDates: [])
+    func addHabit(title: String, color : Color) {
+        let newHabit = Habits(title: title, completionDates: [], color: color)
         habits.append(newHabit)
     }
     
@@ -36,9 +37,10 @@ class HabitsViewModel: ObservableObject {
         habits.move(fromOffsets: from, toOffset: to)
     }
     
-    func updateItem(habit: Habits, title: String) {
+    func updateItem(habit: Habits, title: String, color: Color) {
         if let index = habits.firstIndex(where: { $0.id == habit.id }) {
             habits[index].title = title
+            habits[index].color = color
         }
     }
     
