@@ -8,25 +8,30 @@
 import SwiftUI
 import UserNotifications
 
-class NotificationManager: NSObject, ObservableObject {
-    static let shared = NotificationManager()
+class Notification: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
     
+    static let shared = Notification()
     @Published var authorizationStatus: UNAuthorizationStatus?
+
     
     override init() {
         super.init()
-        getNotificationAuthorizationStatus()
-    }
+        UNUserNotificationCenter.current().delegate = self
+        requestAuthorization { granted in
+            print("Notification permission granted: \(granted)")
+        }    }
     
-    func requestNotificationAuthorization(completion: @escaping (Bool) -> Void) {
+    func requestAuthorization(completion: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            if granted {
-                print("Autorisation acceptée")
-            } else if let error = error {
-                print("Erreur lors de la demande d'autorisation pour les notifications push : \(error.localizedDescription)")
+            DispatchQueue.main.async {
+                if granted {
+                    print("Notifications autorisées")
+                } else if let error = error {
+                    print("Erreur de demande d'autorisation: \(error.localizedDescription)")
+                }
+                self.getNotificationAuthorizationStatus()
+                completion(granted)
             }
-            self.getNotificationAuthorizationStatus()
-            completion(granted)
         }
     }
     
@@ -38,13 +43,28 @@ class NotificationManager: NSObject, ObservableObject {
         }
     }
     
-    func registerForRemoteNotifications() {
-        UIApplication.shared.registerForRemoteNotifications()
+    func disableNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
-    func unregisterForRemoteNotifications() {
-        UIApplication.shared.unregisterForRemoteNotifications()
+    func scheduleNotification(date: Date, title: String, body: String) {
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = UNNotificationSound.default
+
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error)")
+            }
+        }
     }
+    
 }
 
 

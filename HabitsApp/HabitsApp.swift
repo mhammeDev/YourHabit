@@ -13,6 +13,9 @@ struct HabitsAppApp: App {
         WindowGroup {
             HabitsView()
                 .environmentObject(HabitsViewModel())
+                .environmentObject(Notification.shared)
+                .environmentObject(SettingsViewModel())
+
         }
     }
 }

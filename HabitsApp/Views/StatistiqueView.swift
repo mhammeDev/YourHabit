@@ -10,8 +10,10 @@ import SwiftUI
 struct StatistiqueView: View {
     @EnvironmentObject var data: HabitsViewModel
     
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
+    
+        
     @State private var selectedStatType = StatType.daily
-    @State private var selectedDate = Date()
     @State private var showingDatePicker = false
     
     @State private var selectedWeekStartDate = Date()
@@ -35,7 +37,7 @@ struct StatistiqueView: View {
             VStack {
                 if selectedStatType == .daily {
                     HStack {
-                        Text(selectedDate, style: .date)
+                        Text(    settingsViewModel.selectedDate, style: .date)
                             .font(.title3)
                             .bold()
                         
@@ -51,7 +53,8 @@ struct StatistiqueView: View {
                             VStack {
                                 DatePicker(
                                     "Sélectionner la date",
-                                    selection: $selectedDate,
+                                    selection: $settingsViewModel.selectedDate
+,
                                     in: Date()...endDateOfRange,
                                     displayedComponents: .date
                                 )
@@ -70,7 +73,7 @@ struct StatistiqueView: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 18) {
                             ForEach(data.habits) { habit in
-                                RowView(habits: habit, mode: "S", completionDate: selectedDate)
+                                RowView(habits: habit, mode: "S", completionDate:     settingsViewModel.selectedDate)
                             }
                         }
                         .padding(.horizontal)
@@ -95,7 +98,7 @@ struct StatistiqueView: View {
                             Spacer()
                             
                             Text("\(selectedWeekStartDate, style: .date) - \(Calendar.current.date(byAdding: .day, value: 6, to: selectedWeekStartDate)!, style: .date)")
-                                .font(.title3) // Réduit la taille du texte
+                                .font(.title3)
                                 .multilineTextAlignment(.center) // Centre le texte
                             
                             Spacer()
@@ -112,12 +115,15 @@ struct StatistiqueView: View {
                         }
                         .padding()
                         
-                        ForEach(data.habits) { habit in
-                            let percentage = data.calculateWeeklyPercentage(for: habit, startDate: selectedWeekStartDate)
-                            Text("\(habit.title): \(percentage)%")
+                        ScrollView {
+                            VStack(alignment: .leading, spacing: 18) {
+                                ForEach(data.habits) { habit in
+                                    RowView(habits: habit, mode: "X", completionDate:     settingsViewModel.selectedDate,percentage: data.calculateWeeklyPercentage(for: habit, startDate: selectedWeekStartDate))
+                                }
+                            }
+                            .padding(.horizontal)
                         }
                     }
-                    .padding()
                 }
                 Spacer() // Aligne les éléments au centre de l'écran
             }
@@ -138,6 +144,7 @@ struct StatistiqueView_Previews: PreviewProvider {
     static var previews: some View {
         StatistiqueView()
             .environmentObject(HabitsViewModel())
+            .environmentObject(SettingsViewModel())
     }
 }
 

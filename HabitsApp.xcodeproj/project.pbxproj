@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5D6DC49D2BA88339001DFE05 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DC49C2BA88339001DFE05 /* SettingsView.swift */; };
 		5D6FAF092BB0C6140084F4F5 /* QuetesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FAF082BB0C6140084F4F5 /* QuetesView.swift */; };
+		5D6FDADB2BB9931A00C54D2D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FDADA2BB9931A00C54D2D /* WelcomeView.swift */; };
+		5D6FDADD2BB9949400C54D2D /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FDADC2BB9949400C54D2D /* SettingViewModel.swift */; };
 		5DC4E1E92BB09433006A3AA0 /* StatistiqueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4E1E82BB09433006A3AA0 /* StatistiqueView.swift */; };
 		5DDD2F3A2BA8708C0014D9D8 /* HabitsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDD2F392BA8708C0014D9D8 /* HabitsListView.swift */; };
 		5DDD2F3C2BA872CE0014D9D8 /* HabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDD2F3B2BA872CE0014D9D8 /* HabitsView.swift */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		5D6DC49C2BA88339001DFE05 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5D6FAF082BB0C6140084F4F5 /* QuetesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuetesView.swift; sourceTree = "<group>"; };
+		5D6FDADA2BB9931A00C54D2D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		5D6FDADC2BB9949400C54D2D /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		5DC4E1E82BB09433006A3AA0 /* StatistiqueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatistiqueView.swift; sourceTree = "<group>"; };
 		5DDD2F392BA8708C0014D9D8 /* HabitsListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitsListView.swift; sourceTree = "<group>"; };
 		5DDD2F3B2BA872CE0014D9D8 /* HabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsView.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 				EDC3E3922BAAC4CD00FDC526 /* EditHabitsView.swift */,
 				5DC4E1E82BB09433006A3AA0 /* StatistiqueView.swift */,
 				5D6FAF082BB0C6140084F4F5 /* QuetesView.swift */,
+				5D6FDADA2BB9931A00C54D2D /* WelcomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A908BDEB2B98651E00B5D6B4 /* HabitsViewModel.swift */,
+				5D6FDADC2BB9949400C54D2D /* SettingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -192,12 +198,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC3E3932BAAC4CD00FDC526 /* EditHabitsView.swift in Sources */,
+				5D6FDADD2BB9949400C54D2D /* SettingViewModel.swift in Sources */,
 				5DC4E1E92BB09433006A3AA0 /* StatistiqueView.swift in Sources */,
 				5D6DC49D2BA88339001DFE05 /* SettingsView.swift in Sources */,
 				5D6FAF092BB0C6140084F4F5 /* QuetesView.swift in Sources */,
 				A908BDEC2B98651E00B5D6B4 /* HabitsViewModel.swift in Sources */,
 				5DDD2F3C2BA872CE0014D9D8 /* HabitsView.swift in Sources */,
 				A908BDEE2B9865DC00B5D6B4 /* RowView.swift in Sources */,
+				5D6FDADB2BB9931A00C54D2D /* WelcomeView.swift in Sources */,
 				5DDD2F3A2BA8708C0014D9D8 /* HabitsListView.swift in Sources */,
 				EDD1B9832BB411D400B0130D /* Notification.swift in Sources */,
 				EDC3E3912BAAC4BC00FDC526 /* AddHabitsView.swift in Sources */,

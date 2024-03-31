@@ -75,8 +75,25 @@ class HabitsViewModel: ObservableObject {
     func calculateStreak(from startDate: Date) -> Int {
         var streak = 0
         var currentDate = startDate
+        print("ici")
+        print(streak)
         print(startDate)
         var allHabitsCompleted = true
+        
+        while allHabitsCompleted {
+            for habit in habits {
+                if !isDateInHabits(habit: habit, date: currentDate) {
+                    allHabitsCompleted = false
+                    break
+                }
+            }
+            
+            if allHabitsCompleted {
+                streak += 1
+                currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)!
+            }
+        }
+        /*
         
         while allHabitsCompleted {
             for habit in habits {
@@ -91,9 +108,15 @@ class HabitsViewModel: ObservableObject {
                 currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
             }
         }
+         */
         
         return streak
     }
+    
+    func getIncompleteHabits(for date: Date) -> [Habits] {
+        return habits.filter { !isDateInHabits(habit: $0, date: date) }
+    }
+
 
 
 }

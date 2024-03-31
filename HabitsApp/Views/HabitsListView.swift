@@ -10,13 +10,15 @@ import SwiftUI
 struct HabitsListView: View {
     
     @EnvironmentObject var data: HabitsViewModel
-    @State private var selectedDate = Date()
     @State private var showingDatePicker = false
+    
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
+
 
     var body: some View {
         VStack(alignment: .leading, spacing: 50) {
             HStack {
-                Text(selectedDate, style: .date)
+                Text(settingsViewModel.selectedDate, style: .date)
                     .font(.largeTitle)
                     .bold()
                 
@@ -32,8 +34,8 @@ struct HabitsListView: View {
                     VStack {
                         DatePicker(
                             "Sélectionner la date",
-                            selection: $selectedDate,
-                            in: Date()...Date().addingTimeInterval(30 * 24 * 60 * 60), 
+                            selection: $settingsViewModel.selectedDate,
+                            in: Date()...Date().addingTimeInterval(30 * 24 * 60 * 60),
                             displayedComponents: .date
                         )
                         .datePickerStyle(GraphicalDatePickerStyle())
@@ -48,7 +50,7 @@ struct HabitsListView: View {
             }
             .padding([.top, .horizontal])
             
-            Text("Le message d'accueil sera ici, avec utilisateur")
+            Text("Faites vos habitudes \(settingsViewModel.username) !")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .padding(.horizontal)
             
@@ -56,7 +58,7 @@ struct HabitsListView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     ForEach(data.habits) { habit in
-                        RowView(habits: habit, mode: "V",completionDate: selectedDate)
+                        RowView(habits: habit, mode: "V",completionDate: settingsViewModel.selectedDate)
                     }
                 }
                 .padding(.horizontal)
@@ -69,5 +71,7 @@ struct HabitsListView_Previews: PreviewProvider {
     static var previews: some View {
         HabitsListView()
             .environmentObject(HabitsViewModel())
+            .environmentObject(SettingsViewModel())
+
     }
 }

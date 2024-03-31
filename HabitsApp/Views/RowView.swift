@@ -13,6 +13,10 @@ struct RowView: View {
     var mode : Character
     @EnvironmentObject var data: HabitsViewModel
     var completionDate: Date
+    
+    var percentage: Int? = nil
+    
+
 
     
     var body: some View {
@@ -58,6 +62,30 @@ struct RowView: View {
                         )
                 
             }
+            else if mode == "X" {
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .cornerRadius(15)
+                        .frame(width: 380, height: 90)
+                        .foregroundColor(Color(.blue))
+
+                    Rectangle()
+                        .cornerRadius(15)
+                        .frame(width: CGFloat(percentage ?? 0) / 100.0 * 380, height: 90)
+                        .foregroundColor(Color(.white).opacity(0.5))
+                        .animation(.linear, value: percentage)
+
+                    HStack {
+                        Text(habits.title)
+                            .foregroundColor(.white)
+                        Spacer()
+                        Text("\(percentage ?? 0)%")
+                            .foregroundColor(.white)
+                    }.padding(20)
+                    .font(.title)
+                } .padding(.horizontal)
+            }
+
 
         }
         .font(.title2)
@@ -66,7 +94,7 @@ struct RowView: View {
 
 struct RowView_Previews: PreviewProvider {
     static var previews: some View {
-        RowView(habits: Habits.testData[0], mode: "V", completionDate :Date())
+        RowView(habits: Habits.testData[0], mode: "X", completionDate :Date(), percentage: 40)
             .environmentObject(HabitsViewModel())
     }
 }
