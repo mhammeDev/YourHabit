@@ -16,7 +16,7 @@ struct AddHabitsView: View {
     
     @State private var selectedColor = Color(UIColor.systemBlue)
     
-       let systemColors: [UIColor] = [.systemBlue, .systemOrange, .systemPink, .systemPurple, .systemYellow]
+    let systemColors: [UIColor] = [.systemBlue, .systemOrange, .systemIndigo, .systemPurple, .systemYellow, .systemBrown]
 
        var body: some View {
            VStack(spacing: 16) {
@@ -53,6 +53,7 @@ struct AddHabitsView: View {
         .onAppear {
             if let habit = habitToEdit {
                 habitsTitle = habit.title
+                selectedColor = habit.color
             }
         }
        }
@@ -61,6 +62,7 @@ struct AddHabitsView: View {
 struct ColorPickerView: View {
     let systemColors: [UIColor]
     @Binding var selectedColor: Color
+    
 
     var body: some View {
         HStack {

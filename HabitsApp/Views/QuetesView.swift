@@ -13,6 +13,7 @@ struct QuetesView: View {
 
     
     var body: some View {
+        
         ScrollView {
             Text("Quêtes")
                 .font(.title)
@@ -49,6 +50,25 @@ enum QuestLevel: Int, CaseIterable {
             return "Boss"
         }
     }
+    
+    var icons: [String] {
+        switch self {
+        case .debutant:
+            return ["star.fill", "star.fill", "star.fill", "star.fill"]
+        case .intermediaire:
+            return ["leaf.fill", "leaf.fill", "leaf.fill", "leaf.fill"]
+        case .avance:
+            return ["heart.fill", "heart.fill", "heart.fill", "heart.fill"]
+        case .expert:
+            return ["moon.fill", "moon.fill", "moon.fill", "moon.fill"]
+        case .maitre:
+            return ["sun.max.fill", "sun.max.fill", "sun.max.fill", "sun.max.fill"]
+        case .maitreSupreme:
+            return ["flame.fill", "flame.fill", "flame.fill", "flame.fill"]
+        case .boss:
+            return ["crown.fill", "crown.fill", "crown.fill", "crown.fill"]
+        }
+    }
 
     var threshold: Int {
         switch self {
@@ -74,41 +94,68 @@ struct QuestRow: View {
     var level: QuestLevel
     @EnvironmentObject var habitsViewModel: HabitsViewModel
     @EnvironmentObject var settingsViewModel: SettingsViewModel
-
+    
     
     var body: some View {
         let streak = habitsViewModel.calculateStreak(from:settingsViewModel.selectedDate )
         let completed = streak >= level.threshold
         let displayStreak = min(streak, level.threshold)
         
-        HStack {
-            Text(level.title)
-                .font(.title2)
-            Spacer()
+        ZStack {
+            patternBackground(completed: completed)
+                .frame(height: 100)
+                .cornerRadius(15)
             
-            Text("\(displayStreak)/\(level.threshold)")
-                .font(.title2)
-                .padding(.horizontal)
-            
-                    
-            if completed {
-                Image(systemName: "trophy.fill")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .foregroundColor(.yellow)
-            } else {
-                Image(systemName: "lock.fill")
-                    .resizable()
-                    .frame(width: 40, height: 50)
-                    .foregroundColor(Color(.darkGray))
+            HStack {
+                Text(level.title)
+                    .font(.title2)
+                Spacer()
+                
+                Text("\(displayStreak)/\(level.threshold)")
+                    .font(.title2)
+                    .padding(.horizontal)
+                
+                if completed {
+                    Image(systemName: "trophy.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(.yellow)
+                } else {
+                    Image(systemName: "lock.fill")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .foregroundColor(Color(.darkGray))
+                }
             }
-            
+            .padding()
         }
-        .padding()
         .frame(height: 100)
         .background(completed ? Color(.systemGray6) : Color(.systemGray3))
         .cornerRadius(15)
         .padding([.horizontal, .bottom])
+    }
+    
+    @ViewBuilder
+    private func patternBackground(completed: Bool) -> some View {
+        if(completed){
+            GeometryReader { geometry in
+                let positions = [
+                    CGPoint(x: geometry.size.width * 0.15, y: geometry.size.height * 0.35),
+                    CGPoint(x: geometry.size.width * 0.6, y: geometry.size.height * 0.2),
+                    CGPoint(x: geometry.size.width * 0.4, y: geometry.size.height * 0.8),
+                    CGPoint(x: geometry.size.width * 0.85, y: geometry.size.height * 0.8)
+                ]
+            
+                ForEach(0..<4, id: \.self) { index in
+                    Image(systemName: level.icons[index])
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(Color.yellow.opacity(0.2))
+                        .frame(width: 60, height: 60)
+                        .position(positions[index])
+                }        }
+    }
+
     }
 }
 

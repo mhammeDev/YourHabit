@@ -25,7 +25,7 @@ struct RowView: View {
                 Rectangle()
                     .cornerRadius(15)
                     .frame(width: 350, height: 80)
-                    .foregroundColor(Color(.systemGray6))
+                    .foregroundColor(habits.color)
                 
                     .onTapGesture {
                         if(mode == "V"){
@@ -40,11 +40,12 @@ struct RowView: View {
                     .overlay(
                         HStack{
                             if(mode == "V"){
-                                Image(systemName: data.isDateInHabits(habit: habits, date: completionDate) ? "checkmark.circle" : "multiply.circle")
+                                Image(systemName: data.isDateInHabits(habit: habits, date: completionDate) ? "checkmark.circle.fill" : "multiply.circle.fill")
                                     .foregroundColor(data.isDateInHabits(habit: habits, date: completionDate) ? .green : .red)
                                 Spacer()
                             }
                             Text(habits.title)
+                                .foregroundColor(.white)
                         }.font(.title)
                             .padding(10)
                         
@@ -62,6 +63,7 @@ struct RowView: View {
                     .overlay(
                         HStack{
                             Text(habits.title)
+                                .foregroundStyle(.white)
                         }.font(.title)
                             .padding(10)
                         
@@ -78,7 +80,7 @@ struct RowView: View {
                     
                     Rectangle()
                         .cornerRadius(15)
-                        .frame(width: percentage==0  ? 15
+                        .frame(width: percentage==0  ? 20
                                : CGFloat(percentage ?? 0) / 100.0 * 350 , height: 80)
                         .foregroundColor(Color.white.opacity(0.5))
                         .animation(.linear, value: percentage)

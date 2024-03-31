@@ -20,9 +20,9 @@ struct Habits : Identifiable{
     var color : Color
     
     static var testData = [
-        Habits(title: "Faire 10 pompes", completionDates: [], color: Color(.systemBlue)),
-        Habits(title: "Boire de l'eau", completionDates: [], color: Color(.systemOrange)),
-        Habits(title: "Courir 30 minutes", completionDates: [], color: Color(.systemPurple)),
-        Habits(title: "Faire 3000 pas", completionDates: [], color: Color.pink)
+        Habits(title: "Faire 10 pompes", completionDates: [], color: Color(.systemPurple)),
+        Habits(title: "Boire de l'eau", completionDates: [], color: Color(.systemIndigo)),
+        Habits(title: "Courir 30 minutes", completionDates: [], color: Color(.systemBlue)),
+        Habits(title: "Faire 3000 pas", completionDates: [], color: Color(.systemOrange))
     ]
 }
